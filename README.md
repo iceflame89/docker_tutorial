@@ -153,12 +153,12 @@ $ docker build -t robotarm:0.2 . -f robotarm_algorithms/Dockerfiles/Dockerfile
 
 #### 4.1 login
 ```
-docker login  dr.qiyi.virtual
-sudo docker login reg.qiyi.com   ## 有的登陆失败是由于没有用sudo
+docker login  dr.xxx.virtual
+sudo docker login reg.xxx.com   ## 有的登陆失败是由于没有用sudo
 ```
 #### 4.2 logout
 ```
-docker logout  dr.qiyi.virtual
+docker logout  dr.xxx.virtual
 ```
 #### 4.3 镜像加tag
 ```
