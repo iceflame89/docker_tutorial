@@ -17,7 +17,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 ## 2. 运行
 ### 2.1 启动docker daemon 
-ubuntu:
+Ubuntu:
 ```
 $ sudo service docker start
 ```
@@ -33,15 +33,16 @@ docker images
 ```
 删除docker image
 ```
-docker rmi  imagename
+docker rmi  <image>   ## image name or id
 ```
-从Dockerhub拉取一个image
+从Dockerhub或其他registry拉取一个image
 ```
-docker pull  xxx
+docker pull  <image>  
+docker pull  ubuntu:16.04
 ```
 ### 2.3 启动docker container
 ```
-sudo docker run hello-world   #以root 启动的docker daemon ， 启动docker image 也需root 
+sudo docker run hello-world   #以root启动的docker daemon ， 启动docker image也需root 
 ```
 启动一个ubuntu docker ，并进入bash
 ```
@@ -63,7 +64,7 @@ docker run -v  /host/dir:/container/dir <image>
 ```
 docker run -p hostport:container_port <image>
 ```
-设置环境变量
+启动时设置环境变量
 ```
 docker run -e RACV_DATA_PART=3  <image>
 ```
