@@ -1,6 +1,6 @@
 # Docker Tutorials
 
-## 安装Docker Engine
+## 1. 安装Docker Engine
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 #### Ubuntu
@@ -15,8 +15,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 
 
-## 运行
-### 1 启动docker daemon 
+## 2. 运行
+### 2.1 启动docker daemon 
 ubuntu:
 ```
 $ sudo service docker start
@@ -26,7 +26,7 @@ CentOS:
 $ sudo systemctl start docker
 ```
 
-### 2 docker image 管理
+### 2.2 docker image 管理
 查看所有images
 ```
 docker images
@@ -39,7 +39,7 @@ docker rmi  imagename
 ```
 docker pull  xxx
 ```
-### 3 启动docker container
+### 2.3 启动docker container
 ```
 sudo docker run hello-world   #以root 启动的docker daemon ， 启动docker image 也需root 
 ```
@@ -72,7 +72,7 @@ docker run -e RACV_DATA_PART=3  <image>
 docker run -w  /work_dir
 ```
 
-### 3.1 container 查看/删除
+### 2.3.1 container 查看/删除
 查看所有container
 ```
 docker ps -a
@@ -83,30 +83,30 @@ docker ps -a -q  ## 只看containerID
 docker rm  container_name
 docker rm $(docker ps -a -q)
 ```
-### 4 查看container log
+### 2.4 查看container log
 ```
 docker container logs  containerID
 ```
-### 5 进入已经启动的docker container
+### 2.5 进入已经启动的docker container
 ```
 docker exec -it containID  /bin/bash
 ```
-### 6 stop container
+### 2.6 stop container
 ```
 docker container  stop containID
 docker container  rm containID
 ```
-### debug container 
+### 2.7 debug container 
 https://medium.com/@betz.mark/ten-tips-for-debugging-docker-containers-cde4da841a1d
 ```
 docker logs 
 ```
 exec 只能在container running时可用，若container启动就崩溃，无法使用
 
-## Build docker image 
+## 3. Build docker image 
 https://docs.docker.com/engine/getstarted/step_four/
 
-### 编写Dockerfile
+### 3.1 编写Dockerfile
 https://docs.docker.com/engine/reference/builder/
 
 ##### FROM
@@ -129,7 +129,7 @@ https://docs.docker.com/engine/reference/run/
 
 
 
-### build docker 
+### 3.2 Build docker 
 ```
 $ docker build -t nginx_image PATH
 ```
@@ -141,18 +141,18 @@ PATH is required,  context path, for ADD or COPY command
 sudo docker build -t robotarm:0.2 . -f robotarm_algorithms/Dockerfiles/Dockerfile
 ```
 
-## push docker image 到registry
+## 4. push docker image 到registry
 
-#### login
+#### 4.1 login
 ```
 docker login  dr.qiyi.virtual
 sudo docker login reg.qiyi.com   ## 有的登陆失败是由于没有用sudo
 ```
-#### logout
+#### 4.2 logout
 ```
 docker logout  dr.qiyi.virtual
 ```
-#### 在项目中标记镜像：
+#### 4.3 在项目中标记镜像：
 ```
 sudo docker tag maskrcnn-benchmark:0.2 reg.xxx.com/cv/maskrcnn-benchmark:0.2
 ```
@@ -161,13 +161,13 @@ REPOSITORY                           TAG                            IMAGE ID    
 maskrcnn-benchmark                   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB
 reg.xxx.com/ocr/maskrcnn-benchmark   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB
 
-#### 推送镜像到当前项目：
+#### 4.4 推送镜像到当前项目：
 ```
 sudo docker push  reg.xxx.com/cv/maskrcnn-benchmark:0.2
 ```
 
-## 其他 
-#### 配置为无需sudo
+## 5. 其他 
+#### 5.1 配置为无需sudo
 run docker with non-root user       sudo
 https://docs.docker.com/install/linux/linux-postinstall/
 To create the docker group and add your user:
@@ -181,6 +181,6 @@ $sudo usermod -aG docker $USER
 ```
 3.Log out and log back in so that your group membership is re-evaluated.
 
-## Docker Hub  -- share docker image
+## 6. Docker Hub  -- share docker image
 https://hub.docker.com/
 
