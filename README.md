@@ -160,7 +160,7 @@ sudo docker login reg.qiyi.com   ## 有的登陆失败是由于没有用sudo
 ```
 docker logout  dr.qiyi.virtual
 ```
-#### 4.3 在项目中标记镜像：
+#### 4.3 镜像加tag
 ```
 sudo docker tag maskrcnn-benchmark:0.2 reg.xxx.com/cv/maskrcnn-benchmark:0.2
 ```
@@ -169,7 +169,7 @@ REPOSITORY                           TAG                            IMAGE ID    
 maskrcnn-benchmark                   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB    
 reg.xxx.com/ocr/maskrcnn-benchmark   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB    
 
-#### 4.4 推送镜像到当前项目：
+#### 4.4 推送镜像到registry的cv项目
 ```
 sudo docker push  reg.xxx.com/cv/maskrcnn-benchmark:0.2
 ```
