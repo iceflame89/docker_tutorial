@@ -167,20 +167,20 @@ sudo docker push  reg.xxx.com/cv/maskrcnn-benchmark:0.2
 ```
 
 ## 5. 其他 
-#### 5.1 配置为无需sudo
-run docker with non-root user       sudo
+#### 5.1 配置为无需sudo, run docker with non-root user(sudo)
 https://docs.docker.com/install/linux/linux-postinstall/
-To create the docker group and add your user:
-1.Create the docker group.
+
+
+1. Create the docker group.
 ```
 $sudo groupadd docker
 ```
-2.Add your user to the docker group.
+2. Add your user to the docker group.
 ```
 $sudo usermod -aG docker $USER
 ```
-3.Log out and log back in so that your group membership is re-evaluated.
+3. Log out and log back in so that your group membership is re-evaluated.
 
-## 6. Docker Hub  -- share docker image
+#### 5.2 Docker Hub  -- share docker image
 https://hub.docker.com/
 
