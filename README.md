@@ -112,21 +112,28 @@ https://docs.docker.com/engine/reference/builder/
 
 ##### FROM
 DockerHub上一些官方image:
+```
 FROM library/ubuntu:14.04.4                                     
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04   ##
+```
 公司自己的hub如：
+```
 FROM docker-registry.xxx.virtual/library/centos7:1.4
 FROM docker-registry.xxx.virtual/docker/ubuntu:14.04.3
-
+```
 ##### CMD
-多条命令    
+多条命令   
+```
 CMD /etc/init.d/nullmailer start ; /usr/sbin/php5-fpm
+```
 ##### ENV
 设置进入bash的环境变量
 
 ##### RUN
 https://docs.docker.com/engine/reference/run/
-
+```
+RUN pip install numpy
+```
 
 
 
