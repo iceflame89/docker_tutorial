@@ -1,7 +1,9 @@
+# Docker Tutorials
+
 ## 安装Docker Engine
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
-### Ubuntu
+#### Ubuntu
 Update your apt sources 更新apt源
 ```
 sudo apt-get update
@@ -11,16 +13,7 @@ apt安装docker
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
-### 配置为无需sudo
-run docker with non-root user       sudo
-https://docs.docker.com/install/linux/linux-postinstall/
-To create the docker group and add your user:
-1.Create the docker group.
 
-$sudo groupadd docker
-2.Add your user to the docker group.
-$sudo usermod -aG docker $USER
-3.Log out and log back in so that your group membership is re-evaluated.
 
 ## 运行
 ### 1 启动docker daemon 
@@ -90,28 +83,30 @@ docker ps -a -q  ## 只看containerID
 docker rm  container_name
 docker rm $(docker ps -a -q)
 ```
-## 4 查看container log
+### 4 查看container log
 ```
 docker container logs  containerID
 ```
-## 5 进入已经启动的docker container
+### 5 进入已经启动的docker container
 ```
 docker exec -it containID  /bin/bash
 ```
-## 6 stop container
+### 6 stop container
 ```
 docker container  stop containID
 docker container  rm containID
 ```
-## debug container 
+### debug container 
 https://medium.com/@betz.mark/ten-tips-for-debugging-docker-containers-cde4da841a1d
+```
 docker logs 
+```
 exec 只能在container running时可用，若container启动就崩溃，无法使用
 
-## build docker image 
+## Build docker image 
 https://docs.docker.com/engine/getstarted/step_four/
 
-## 编写Dockerfile
+### 编写Dockerfile
 https://docs.docker.com/engine/reference/builder/
 
 DockerHub上一些官方image:
@@ -168,6 +163,21 @@ reg.xxx.com/ocr/maskrcnn-benchmark   0.2                            edfb8cb7c2a1
 ```
 sudo docker push  reg.ainirobot.com/ocr/maskrcnn-benchmark:0.2
 ```
+
+## 其他 
+#### 配置为无需sudo
+run docker with non-root user       sudo
+https://docs.docker.com/install/linux/linux-postinstall/
+To create the docker group and add your user:
+1.Create the docker group.
+```
+$sudo groupadd docker
+```
+2.Add your user to the docker group.
+```
+$sudo usermod -aG docker $USER
+```
+3.Log out and log back in so that your group membership is re-evaluated.
 
 ## Docker Hub  -- share docker image
 https://hub.docker.com/
