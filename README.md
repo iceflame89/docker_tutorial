@@ -165,9 +165,9 @@ docker logout  dr.qiyi.virtual
 sudo docker tag maskrcnn-benchmark:0.2 reg.xxx.com/cv/maskrcnn-benchmark:0.2
 ```
 同样的image 会多出一条记录：     
-REPOSITORY                           TAG                            IMAGE ID            CREATED             SIZE
-maskrcnn-benchmark                   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB
-reg.xxx.com/ocr/maskrcnn-benchmark   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB
+REPOSITORY                           TAG                            IMAGE ID            CREATED             SIZE    
+maskrcnn-benchmark                   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB    
+reg.xxx.com/ocr/maskrcnn-benchmark   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB    
 
 #### 4.4 推送镜像到当前项目：
 ```
