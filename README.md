@@ -112,9 +112,9 @@ https://docs.docker.com/engine/reference/builder/
 DockerHub上一些官方image:
 FROM library/ubuntu:14.04.4                                     
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04   ##
-公司自己的hub：
-FROM docker-registry.qiyi.virtual/library/centos7:1.4
-FROM docker-registry.qiyi.virtual/docker/ubuntu:14.04.3
+公司自己的hub如：
+FROM docker-registry.xxx.virtual/library/centos7:1.4
+FROM docker-registry.xxx.virtual/docker/ubuntu:14.04.3
 
 CMD
 多条命令
@@ -141,16 +141,17 @@ sudo docker build -t robotarm:0.2 . -f robotarm_algorithms/Dockerfiles/Dockerfil
 ```
 
 ## push docker image 到registry
-login
+
+#### login
 ```
 docker login  dr.qiyi.virtual
-sudo docker login reg.ainirobot.com   ## 有的登陆失败是由于没有用sudo
+sudo docker login reg.qiyi.com   ## 有的登陆失败是由于没有用sudo
 ```
-logout
+#### logout
 ```
 docker logout  dr.qiyi.virtual
 ```
-在项目中标记镜像：
+#### 在项目中标记镜像：
 ```
 sudo docker tag maskrcnn-benchmark:0.2 reg.xxx.com/cv/maskrcnn-benchmark:0.2
 ```
@@ -159,7 +160,7 @@ REPOSITORY                           TAG                            IMAGE ID    
 maskrcnn-benchmark                   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB
 reg.xxx.com/ocr/maskrcnn-benchmark   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB
 
-推送镜像到当前项目：
+#### 推送镜像到当前项目：
 ```
 sudo docker push  reg.ainirobot.com/ocr/maskrcnn-benchmark:0.2
 ```
