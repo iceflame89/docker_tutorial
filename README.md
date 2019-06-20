@@ -109,6 +109,7 @@ https://docs.docker.com/engine/getstarted/step_four/
 ### 编写Dockerfile
 https://docs.docker.com/engine/reference/builder/
 
+##### FROM
 DockerHub上一些官方image:
 FROM library/ubuntu:14.04.4                                     
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04   ##
@@ -116,16 +117,16 @@ FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04   ##
 FROM docker-registry.xxx.virtual/library/centos7:1.4
 FROM docker-registry.xxx.virtual/docker/ubuntu:14.04.3
 
-CMD
-多条命令
+##### CMD
+多条命令    
 CMD /etc/init.d/nullmailer start ; /usr/sbin/php5-fpm
-ENV
+##### ENV
 设置进入bash的环境变量
 
-RUN
+##### RUN
 https://docs.docker.com/engine/reference/run/
 
-docker run -e "RACV_DATA_PART=3"   ## run with env  启动时指定环境变量
+
 
 
 ### build docker 
@@ -155,14 +156,14 @@ docker logout  dr.qiyi.virtual
 ```
 sudo docker tag maskrcnn-benchmark:0.2 reg.xxx.com/cv/maskrcnn-benchmark:0.2
 ```
-同样的image 会多出一条记录：
+同样的image 会多出一条记录：     
 REPOSITORY                           TAG                            IMAGE ID            CREATED             SIZE
 maskrcnn-benchmark                   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB
 reg.xxx.com/ocr/maskrcnn-benchmark   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB
 
 #### 推送镜像到当前项目：
 ```
-sudo docker push  reg.ainirobot.com/ocr/maskrcnn-benchmark:0.2
+sudo docker push  reg.xxx.com/cv/maskrcnn-benchmark:0.2
 ```
 
 ## 其他 
