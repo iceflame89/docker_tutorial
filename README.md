@@ -73,7 +73,7 @@ docker run -e RACV_DATA_PART=3  <image>
 docker run -w  /work_dir
 ```
 
-### 2.3.1 container 查看/删除
+#### 2.3.1 container 查看/删除
 查看所有container
 ```
 docker ps -a
@@ -103,6 +103,8 @@ https://medium.com/@betz.mark/ten-tips-for-debugging-docker-containers-cde4da841
 docker logs 
 ```
 exec 只能在container running时可用，若container启动就崩溃，无法使用
+
+
 
 ## 3. Build docker image 
 https://docs.docker.com/engine/getstarted/step_four/
@@ -135,18 +137,16 @@ https://docs.docker.com/engine/reference/run/
 RUN pip install numpy
 ```
 
-
-
 ### 3.2 Build docker 
 ```
 $ docker build -t nginx_image PATH
 ```
-PATH is required,  context path, for ADD or COPY command
--t  target name
--f  dockerfile  name
-如:
+PATH is required,  context path, for ADD or COPY command    
+-t  target name     
+-f  dockerfile  name    
+如:    
 ```
-sudo docker build -t robotarm:0.2 . -f robotarm_algorithms/Dockerfiles/Dockerfile
+$ docker build -t robotarm:0.2 . -f robotarm_algorithms/Dockerfiles/Dockerfile
 ```
 
 ## 4. push docker image 到registry
