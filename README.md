@@ -48,7 +48,7 @@ sudo docker run hello-world   #以root启动的docker daemon ， 启动docker im
 ```
 sudo docker run -it ubuntu bash
 ```
-直接启动docker image , 同上线状态
+直接启动docker image
 ```
 docker run -it <your-image>
 ```
@@ -153,21 +153,23 @@ $ docker build -t robotarm:0.2 . -f robotarm_algorithms/Dockerfiles/Dockerfile
 
 #### 4.1 login
 ```
-docker login  dr.xxx.virtual
+docker login  reg.xxx.com
 sudo docker login reg.xxx.com   ## 有的登陆失败是由于没有用sudo
 ```
 #### 4.2 logout
 ```
-docker logout  dr.xxx.virtual
+docker logout  reg.xxx.com
 ```
 #### 4.3 镜像加tag
 ```
 sudo docker tag maskrcnn-benchmark:0.2 reg.xxx.com/cv/maskrcnn-benchmark:0.2
 ```
-同样的image 会多出一条记录：     
-REPOSITORY                           TAG                            IMAGE ID            CREATED             SIZE    
-maskrcnn-benchmark                   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB    
-reg.xxx.com/ocr/maskrcnn-benchmark   0.2                            edfb8cb7c2a1        12 minutes ago      5.85GB    
+同样的image 会多出一条记录： 
+```
+REPOSITORY                          TAG     IMAGE ID        CREATED           SIZE    
+maskrcnn-benchmark                  0.2     edfb8cb7c2a1    12 minutes ago    5.85GB    
+reg.xxx.com/ocr/maskrcnn-benchmark  0.2     edfb8cb7c2a1    12 minutes ago    5.85GB   
+```
 
 #### 4.4 推送镜像到registry的cv项目
 ```
@@ -187,7 +189,7 @@ $sudo groupadd docker
 ```
 $sudo usermod -aG docker $USER
 ```
-3. Log out and log back in so that your group membership is re-evaluated.
+3. Logout and log back in so that your group membership is re-evaluated.
 
 #### 5.2 Docker Hub  -- share docker image
 https://hub.docker.com/
