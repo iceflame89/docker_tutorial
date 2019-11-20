@@ -4,13 +4,34 @@
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 #### Ubuntu
-Update your apt sources 更新apt源
+
+##### SET UP THE REPOSITORY
+1. Update the apt package index:
+```shell
+$ sudo apt-get update
 ```
-sudo apt-get update
+
+2. Add Docker’s official GPG key:
+```shell
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
-apt安装docker
+
+3. Use the following command to set up the stable repository. 
+```shell
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
 ```
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+##### INSTALL DOCKER ENGINE - COMMUNITY
+1. Update the apt package index.
+```shell
+$ sudo apt-get update
+```
+
+2. Install the latest version of Docker Engine - Community and containerd
+```shell
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 
