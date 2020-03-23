@@ -18,10 +18,7 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 3. Use the following command to set up the stable repository. 
 ```shell
-$ sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 ##### INSTALL DOCKER ENGINE - COMMUNITY
 1. Update the apt package index.
