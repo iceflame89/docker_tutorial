@@ -3,7 +3,7 @@
 ## 1. 安装Docker Engine
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
-#### Ubuntu
+#### 1.1 Docker Engine安装 (Ubuntu)
 
 ##### SET UP THE REPOSITORY
 1. Update the apt package index:
@@ -22,17 +22,32 @@ $ sudo add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 ##### INSTALL DOCKER ENGINE - COMMUNITY
-1. Update the apt package index.
+
+Install the latest version of Docker Engine - Community and containerd
 ```shell
-$ sudo apt-get update
+$ sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
-2. Install the latest version of Docker Engine - Community and containerd
-```shell
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+#### 1.2 nvidia-docker安装（运行nvidia gpu需要安装）
+下面只适合docker version>=19.03
+##### Ubuntu 16.04/18.04, Debian Jessie/Stretch/Buster
 ```
+# Add the package repositories
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 
+sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
+##### CentOS 7 (docker-ce), RHEL 7.4/7.5 (docker-ce), Amazon Linux 1/2
+```
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo
 
+sudo yum install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
 
 ## 2. 运行
 ### 2.1 启动docker daemon 
@@ -71,9 +86,10 @@ sudo docker run -it ubuntu bash
 ```
 docker run -it <your-image>
 ```
-nvidia runtime
+nvidia runtime 
 ```
-docker run --runtime=nvidia -it <image>
+docker run --runtime=nvidia -it <image>   # docker < 19.03
+docker run --gpus all  -it <image>        # docker >=19.03
 ```
 挂载 host dir
 ```
