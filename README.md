@@ -30,6 +30,7 @@ $ sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd
 
 #### 1.2 nvidia-docker安装（运行nvidia gpu需要安装）
 https://github.com/NVIDIA/nvidia-docker
+
 下面只适合docker version>=19.03
 ##### Ubuntu 16.04/18.04, Debian Jessie/Stretch/Buster
 ```
