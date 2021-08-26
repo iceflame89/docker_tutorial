@@ -109,6 +109,10 @@ docker run -e RACV_DATA_PART=3  <image>
 ```
 docker run -w  /work_dir
 ```
+使用主机的网络
+```
+docker run --network host xxx
+```
 
 #### 2.3.1 container 查看/删除
 查看所有container
